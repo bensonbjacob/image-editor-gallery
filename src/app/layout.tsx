@@ -7,10 +7,10 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Button } from "@/components/ui/button";
-import { Heart } from "@/components/icons/heart";
+// import { Heart } from "@/components/icons/heart";
 import Link from "next/link";
 import cloudinary from "next-cloudinary";
-import { Folder } from "./albums/page";
+// import { Folder } from "./albums/page";
 import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 };
 
 async function SideMenu() {
-  const { folders } = (await cloudinary.v2.api.root_folders()) as {
-    folders: Folder[];
-  };
+  // const { folders } = (await cloudinary.v2.api.root_folders()) as {
+  //   folders: Folder[];
+  // };
 
   return (
     <div className="pb-12 w-1/5">
@@ -75,7 +75,7 @@ async function SideMenu() {
                 Albums
               </Link>
             </Button>
-            {folders.map((folder) => (
+            {/* {folders.map((folder) => (
               <Button
                 variant="ghost"
                 asChild
@@ -87,13 +87,13 @@ async function SideMenu() {
                   {folder.name}
                 </Link>
               </Button>
-            ))}
+            ))} */}
             <Button
               asChild
               variant="ghost"
               className="w-full justify-start flex gap-2">
               <Link href="/favorites">
-                <Heart />
+                {/* <Heart /> */}
                 Favorites
               </Link>
             </Button>
@@ -123,10 +123,12 @@ export default function RootLayout({
             </div>
           </div>
         </div>
+
         <div className="flex">
           <SideMenu />
+
+          <div className="w-full px-4 pt-8">{children}</div>
         </div>
-        <div>{children}</div>
       </body>
     </html>
   );
