@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <CldUploadButton
+      {/* <CldUploadButton
         onUpload={(result: UploadResult) => {
           setImageId(result.info.public_id);
         }}
@@ -31,7 +31,7 @@ export default function Home() {
           sizes="100vw"
           alt="Description of my image"
         />
-      )}
+      )} */}
     </main>
   );
 }
