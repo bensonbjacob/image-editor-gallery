@@ -7,7 +7,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Button } from "@/components/ui/button";
-// import { Heart } from "@/components/icons/heart";
+import { Heart } from "@/components/icons/heart";
 import Link from "next/link";
 import cloudinary from "next-cloudinary";
 // import { Folder } from "./albums/page";
@@ -93,7 +93,7 @@ async function SideMenu() {
               variant="ghost"
               className="w-full justify-start flex gap-2">
               <Link href="/favorites">
-                {/* <Heart /> */}
+                <Heart />
                 Favorites
               </Link>
             </Button>
