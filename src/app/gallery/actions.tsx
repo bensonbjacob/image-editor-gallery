@@ -13,6 +13,6 @@ export async function setAsFavoriteAction(
   } else {
     await cloudinary.v2.uploader.remove_tag("favorite", [publicId]);
   }
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 1500));
   revalidatePath("path");
 }
