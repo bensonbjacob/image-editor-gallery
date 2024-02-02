@@ -7,7 +7,7 @@ import { SearchResult } from "../app/gallery/page";
 import { FullHeart } from "@/components/icons/full-heart";
 
 export default function CloudinaryImage(
-  props: any & { imageData: SearchResult }
+  props: any & { imageData: SearchResult; path: string }
 ) {
   const [transition, startTransition] = useTransition();
 
@@ -22,7 +22,11 @@ export default function CloudinaryImage(
         <FullHeart
           onClick={() => {
             startTransition(() => {
-              setAsFavoriteAction(imageData.public_id, false);
+              setAsFavoriteAction(
+                imageData.public_id,
+                false,
+                props.path
+              );
             });
           }}
           className="absolute top-2 right-2 hover:text-white text-red-500 cursor-pointer"
@@ -31,7 +35,11 @@ export default function CloudinaryImage(
         <Heart
           onClick={() => {
             startTransition(() => {
-              setAsFavoriteAction(imageData.public_id, true);
+              setAsFavoriteAction(
+                imageData.public_id,
+                true,
+                props.path
+              );
             });
           }}
           className="absolute top-2 right-2 hover:text-red-500 cursor-pointer"
