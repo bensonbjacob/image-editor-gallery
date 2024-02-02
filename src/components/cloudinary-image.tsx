@@ -2,7 +2,7 @@
 import { Heart } from "@/components/icons/heart";
 import { CldImage } from "next-cloudinary";
 import { setAsFavoriteAction } from "../app/gallery/actions";
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import { SearchResult } from "../app/gallery/page";
 import { FullHeart } from "@/components/icons/full-heart";
 
@@ -13,7 +13,9 @@ export default function CloudinaryImage(
 
   const { imageData } = props;
 
-  const isFavorited = imageData.tags.includes("favorite");
+  const [isFavorited, setIsFavorited] = useState(
+    imageData.tags.includes("favorite")
+  );
 
   return (
     <div className="relative">
@@ -21,12 +23,9 @@ export default function CloudinaryImage(
       {isFavorited ? (
         <FullHeart
           onClick={() => {
+            setIsFavorited(false);
             startTransition(() => {
-              setAsFavoriteAction(
-                imageData.public_id,
-                false,
-                props.path
-              );
+              setAsFavoriteAction(imageData.public_id, false);
             });
           }}
           className="absolute top-2 right-2 hover:text-white text-red-500 cursor-pointer"
@@ -34,12 +33,9 @@ export default function CloudinaryImage(
       ) : (
         <Heart
           onClick={() => {
+            setIsFavorited(true);
             startTransition(() => {
-              setAsFavoriteAction(
-                imageData.public_id,
-                true,
-                props.path
-              );
+              setAsFavoriteAction(imageData.public_id, true);
             });
           }}
           className="absolute top-2 right-2 hover:text-red-500 cursor-pointer"
