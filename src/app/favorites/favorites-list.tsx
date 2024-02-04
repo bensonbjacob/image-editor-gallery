@@ -2,7 +2,7 @@
 
 import CloudinaryImage from "@/components/cloudinary-image";
 import { SearchResult } from "../gallery/page";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 
 export default function FavoritesList({
   initialResources,
@@ -10,6 +10,10 @@ export default function FavoritesList({
   initialResources: SearchResult[];
 }) {
   const [resources, setResources] = useState(initialResources);
+
+  useEffect(() => {
+    setResources(initialResources);
+  }, [initialResources]);
 
   return (
     <div className="grid grid-cols-4 gap-4">
