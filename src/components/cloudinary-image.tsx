@@ -5,6 +5,7 @@ import { setAsFavoriteAction } from "../app/gallery/actions";
 import { useState, useTransition } from "react";
 import { SearchResult } from "../app/gallery/page";
 import { FullHeart } from "@/components/icons/full-heart";
+import { ImageMenu } from "./image-menu";
 
 export default function CloudinaryImage(
   props: {
@@ -33,7 +34,7 @@ export default function CloudinaryImage(
               setAsFavoriteAction(imageData.public_id, false);
             });
           }}
-          className="absolute top-2 right-2 hover:text-white text-red-500 cursor-pointer"
+          className="absolute top-2 left-2 hover:text-white text-red-500 cursor-pointer"
         />
       ) : (
         <Heart
@@ -43,9 +44,10 @@ export default function CloudinaryImage(
               setAsFavoriteAction(imageData.public_id, true);
             });
           }}
-          className="absolute top-2 right-2 hover:text-red-500 cursor-pointer"
+          className="absolute top-2 left-2 hover:text-red-500 cursor-pointer"
         />
       )}
+      <ImageMenu />
     </div>
   );
 }
