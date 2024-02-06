@@ -6,13 +6,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Menu } from "./icons/menu";
-// import { AddToAlbumDialog } from "./add-to-album-dialog";
+import { AddToAlbumDialog } from "./add-to-album-dialog";
 import { SearchResult } from "@/app/gallery/page";
 import { useState } from "react";
 import Link from "next/link";
 import { Pencil } from "lucide-react";
 
-export function ImageMenu() {
+export function ImageMenu({ image }: { image: SearchResult }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -25,16 +25,24 @@ export function ImageMenu() {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-40">
           <DropdownMenuItem asChild>
-            {/* <AddToAlbumDialog
+            <AddToAlbumDialog
               image={image}
               onClose={() => setOpen(false)}
-            /> */}
+            />
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
             <Button
               className="cursor-pointer flex justify-start pl-4"
               asChild
-              variant="ghost"></Button>
+              variant="ghost">
+              <Link
+                href={`/edit?publicId=${encodeURIComponent(
+                  image.public_id
+                )}`}>
+                <Pencil className="mr-2 w-4 h-4" />
+                Edit
+              </Link>
+            </Button>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
