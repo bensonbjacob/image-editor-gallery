@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Image Gallery
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It uses [Tailwind CSS](https://tailwindcss.com/) for styling, [ShadCN-UI](https://shadcn.github.io/shadcn-ui/) for UI components, and [Cloudinary](https://cloudinary.com/) for image management.
+
+## About
+
+This application allows users to upload and organize images into a gallery. 
 
 ## Getting Started
 
