@@ -1,4 +1,5 @@
 import cloudinary from "cloudinary";
+
 export type Folder = { name: string; path: string };
 
 export default async function AlbumsPage() {
