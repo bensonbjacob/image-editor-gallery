@@ -1,17 +1,10 @@
 import cloudinary from "cloudinary";
-
-export type SearchResult = {
-  public_id: string;
-  tags: string[];
-};
+export type Folder = { name: string; path: string };
 
 export default async function AlbumsPage() {
-  const results = (await cloudinary.v2.search
-    .expression("resource_type:image")
-    .sort_by("created_at", "desc")
-    .with_field("tags")
-    .max_results(30)
-    .execute()) as { resources: SearchResult[] };
+  const { folders } = (await cloudinary.v2.api.root_folders()) as {
+    folders: Folder[];
+  };
 
   return (
     <section>
